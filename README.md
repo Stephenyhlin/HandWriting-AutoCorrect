@@ -1,6 +1,6 @@
 # SupremeUofT
 MakeUofT 2020 Project
 
-- [ ] Solace connection
 - [ ] PyTorch
-- [ ] Python Flask Server
+- [X] Solace connection
+- [X] Python Flask Server
