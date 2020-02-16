@@ -1,5 +1,9 @@
 import paho.mqtt.client as mqtt
 import time
+import sys 
+# sys.path.insert(1,'./machine-model/autocorrect.py')
+import machine_model.autocorrect as auto_c
+import json
 
 solace_url = "mr2j0vvhki1l0v.messaging.solace.cloud"
 solace_port = 20038
@@ -15,6 +19,14 @@ def on_connect(client, userdata, flags, rc):  # The callback for when the client
 
 def on_message(client, userdata, msg):  # The callback for when a PUBLISH message is received from the server.
     print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
+    parsed = json.loads(msg.payload)
+    string_arg = str(parsed["text"]).replace('\\n',' ')
+    string_arg = string_arg.replace('\\','')
+    print(string_arg)
+    if (string_arg is not ""):
+        auto_c.auto_correct(string_arg)
+    else:
+        print("Please write some legible text")
 
 client = mqtt.Client(solace_clientid) # Create instance of client
 client.username_pw_set(solace_user, password=solace_passwd)
