@@ -30,7 +30,7 @@ client.connect(solace_url,port=solace_port)
 payload = json.dumps({"text": text}, indent=4)
 print(payload)
 client.publish(solace_pi_topic, payload, qos=1)
-time.sleeps(5)
+time.sleep(5)
 
 client.loop_stop()
 client.disconnect()
