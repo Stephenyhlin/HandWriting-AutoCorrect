@@ -2,21 +2,14 @@ import paho.mqtt.client as mqtt
 import time
 
 def lambda_handler(event, context):
-    # solace_url = "mr1u6o37qngitn.messaging.solace.cloud"
-    # solace_port = 1883
-    # solace_user = "solace-cloud-client"
-    # solace_passwd = "2g71evn41v1va1jioggvch69je"
 
     solace_url = "mr2j0vvhki1l0v.messaging.solace.cloud"
     solace_port = 20038
     solace_user = "solace-cloud-client"
     solace_passwd = "sd7rvjjkbdfu3grah9r5rqiqn6"
 
-    solace_clientid = "raspi"
-    solace_pi_topic = "try-me"
-
-    # solace_clientid = "vats_id"
-    # solace_pi_topic = "devices/+/events"
+    solace_clientid = "test1"
+    solace_pi_topic = "devices/+/events"
     #solace_pi_topic = "devices/#"
 
     qos = 1
@@ -54,6 +47,6 @@ def on_connect(client, userdata, flags, rc):  # The callback for when the client
 def on_message(client, userdata, msg):  # The callback for when a PUBLISH message is received from the server.
     # print ("on_message called")
     #response = str(msg.payload)
-    print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
+    print(str(msg.payload))  # Print a received msg
 
 lambda_handler(1,1)
