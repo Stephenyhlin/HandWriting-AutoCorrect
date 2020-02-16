@@ -2,7 +2,7 @@
 MakeUofT 2020 Project
 
 - [x] Solace connection
-- [ ] Use TextBlob
+- [X] Use TextBlob
   
 
 
