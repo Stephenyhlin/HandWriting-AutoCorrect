@@ -22,9 +22,9 @@ def on_message(client, userdata, msg):  # The callback for when a PUBLISH messag
     parsed = json.loads(msg.payload)
     string_arg = str(parsed["text"]).replace('\\n',' ')
     string_arg = string_arg.replace('\\','')
-    print(string_arg)
+    # print(string_arg)
     if (string_arg is not ""):
-        auto_c.auto_correct(string_arg)
+        print(auto_c.auto_correct(string_arg))
     else:
         print("Please write some legible text")
 

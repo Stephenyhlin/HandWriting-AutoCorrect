@@ -11,6 +11,7 @@ def auto_correct( data ):
     spelling = Spelling(path=path)
     # We will first turn the data into a TextBlob
     blob_data = TextBlob( data )
+    # print(blob_data)
     # Create a changed flag
     changed = False
     return_list = []
@@ -20,6 +21,7 @@ def auto_correct( data ):
     for word in blob_data.words:
         # Convert everything into a word that can be spell checked
         temp_word = Word( word )
+        # print('help')
         # temp_tuples = temp_word.spellcheck()
         # go through the first tuple. The first tuple is the most confident autocorrect word
         # tuples[0] is the word, tuples[1] is the confidence
@@ -31,6 +33,7 @@ def auto_correct( data ):
         #             changed = True
         #         break
         for tuples in spelling.suggest(word):
+            # print('help3')
             if ( not (tuples[1] == 1.0 or (tuples[0] == temp_word) ) ):
                 # We add to a list
                 print( "Changed word " + word + " to " + tuples[0] + " since we have a confidence level of " + str(tuples[1]))
@@ -40,11 +43,15 @@ def auto_correct( data ):
                 break
             return_list.append(tuples[0])
     
+    list_to_str = ' '.join([str(elem) for elem in return_list])
+
     if(changed) :
         # using list comprehension 
-        list_to_str = ' '.join([str(elem) for elem in return_list])
         print("Did you mean: \"" + list_to_str + "\"?")
+    
+    # 
     return list_to_str
+    # return blob_data if list_to_str == [] else list_to_str
                 
 
 
