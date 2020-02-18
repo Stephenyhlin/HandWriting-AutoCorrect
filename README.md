@@ -18,3 +18,14 @@ MakeUofT 2020 Project
   - Paho mqtt
     - pip3 install paho-mqtt
 
+
+## Extra tips for expanding the project
+- Voice recordings + typing as extra data we can use to help contextualize the information being provided in the current setting
+- Geofencing -> local servers in a geographical area that can help us load balance and speed up service by using redudnacies from other users within the geofence 
+- Augmented reality for people who are writing on trandiational pen and paper
+
+## next steps 
+- UI
+- Conceptual sentance modal for ML
+- get on to tablet
+- Pitch to grammarly
